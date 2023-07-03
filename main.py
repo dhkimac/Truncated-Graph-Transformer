@@ -53,7 +53,7 @@ for n in model_node_num:
     scheduler = partial(torch.optim.lr_scheduler.ReduceLROnPlateau, factor=0.5, mode="min", patience=10, verbose=True)
     lit_module = TGTLitModule(model, optimizer, scheduler, noise)
     model_list.append(lit_module)
-    trainer = Trainer(max_epochs=1,
+    trainer = Trainer(max_epochs=30,
             accelerator='gpu',
             devices=1,
             logger=False,
